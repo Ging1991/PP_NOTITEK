@@ -26,7 +26,7 @@ public class UsuarioManager extends BaseManager{
 				usuarios.add(new Usuario(
 						resultados.getInt("ID_USUARIO"),
 						resultados.getString("NOMBRE"),
-						resultados.getString("MAIL"),
+						resultados.getString("EMAIL"),
 						resultados.getString("PASS")));
 			resultados.close();
 			sentencia.close();
@@ -43,7 +43,9 @@ public class UsuarioManager extends BaseManager{
 	
 	public void agregarUsuario(String nombre, String mail, String pass) {
 		//String comandoSQL = "INSERT INTO public.ntk_usuarios(nombre, mail, pass) VALUES ('" + nombre +"','"+mail+"','"+pass+"');";
-		String comandoSQL = "INSERT INTO ntk_usuarios(nombre, mail, pass) VALUES ('" + nombre +"','"+mail+"','"+pass+"');";
+		String comandoSQL = "INSERT INTO ntk_usuarios(nombre, email, pass) VALUES ('" + nombre +"','"+mail+"','"+pass+"');";
+		
+		
 		
 		try { 
 			Class.forName(driver); 
@@ -70,7 +72,7 @@ public class UsuarioManager extends BaseManager{
 		String comandoSQL = ""
 				+ " SELECT * "
 				+ " FROM ntk_usuarios "
-				+ " WHERE (nombre = '" +nombre+ "' OR mail = '" +mail+ "') "
+				+ " WHERE (nombre = '" +nombre+ "' OR email = '" +mail+ "') "
 				+ "     AND pass = '"+pass+"'";
 		
 		try { 
@@ -84,7 +86,7 @@ public class UsuarioManager extends BaseManager{
 				usuario = new Usuario(
 					resultados.getInt("ID_USUARIO"),
 					resultados.getString("NOMBRE"),
-					resultados.getString("MAIL"),
+					resultados.getString("EMAIL"),
 					resultados.getString("PASS"));
 			}
 			

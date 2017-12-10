@@ -15,7 +15,7 @@ public class NoticiaManager extends BaseManager{
 
 	public List<ResumenNoticia> getResumenes(){
 		List<ResumenNoticia> resumenes = new ArrayList<ResumenNoticia>();
-		
+		//aaa
 		try { 
 			Class.forName(driver); 
 			Connection conexion = DriverManager.getConnection(cadenaConexion, usuarioBD, passwordBD); 
