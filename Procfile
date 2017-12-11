@@ -1,1 +1,1 @@
-web: sh target/bin/notitek
+web: java -cp target/classes/:target/dependency/com.ntk.notitek.MyUI
